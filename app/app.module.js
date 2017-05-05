@@ -16,6 +16,7 @@ var transaction_module_1 = require("./components/transaction.module");
 var user_component_1 = require("./components/user.component");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
+var ng2_bootstrap_1 = require("ng2-bootstrap");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +28,10 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule,
             app_routing_1.routing,
-            transaction_module_1.TransactionModule],
+            transaction_module_1.TransactionModule,
+            ng2_bootstrap_1.AlertModule.forRoot(),
+            ng2_bootstrap_1.DatepickerModule.forRoot()
+        ],
         declarations: [app_component_1.AppComponent, user_component_1.UserComponent],
         bootstrap: [app_component_1.AppComponent]
     })
