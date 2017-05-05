@@ -9,13 +9,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.dt = new Date();
+        this.minDate = null;
+        this.formats = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY', 'shortDate'];
+        this.format = this.formats[0];
+        this.dateOptions = {
+            formatYear: 'YY',
+            startingDay: 1
+        };
+        this.opened = false;
     }
+    AppComponent.prototype.getDate = function () {
+        return this.dt && this.dt.getTime() || new Date().getTime();
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <ul>\n      <li><a routerLink=\"/\">Home</a></li>\n       <li><a routerLink=\"/user\">User</a></li>\n    </ul>\n    <hr />\n    <router-outlet></router-outlet>\n    ",
+        template: "\n    <ul>\n      <li><a routerLink=\"/\">Home</a></li>\n       <li><a routerLink=\"/user\">User</a></li>\n    </ul>\n    <hr />\n\n\n    <alert type=\"info\">ng2-bootstrap hello world!</alert>\n      <pre>Selected date is: <em *ngIf=\"dt\">{{ getDate() | date:'fullDate'}}</em></pre>\n      <h4>Inline</h4>\n      <div style=\"display:inline-block; min-height:290px;\">\n        <datepicker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></datepicker>\n      </div>\n\n    <router-outlet></router-outlet>\n    ",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

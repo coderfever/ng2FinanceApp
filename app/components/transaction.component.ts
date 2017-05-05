@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Transaction, TransactionService } from '../services/transaction.service';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+//import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 import { ChartModule } from 'angular2-highcharts';
 // import { TransactionFormComponent } from './TransactionFormComponent';
 
@@ -23,12 +23,12 @@ export class TransactionComponent implements OnInit {
     ];
 
     date: DateModel;
-    options: DatePickerOptions;
+    //options: DatePickerOptions;
 
     isOpenForm: boolean = false;
 
     constructor(private transactionService: TransactionService){
-      this.options = new DatePickerOptions;
+    //  this.options = new DatePickerOptions;
     }
 
     options: Object;
@@ -63,7 +63,7 @@ export class TransactionComponent implements OnInit {
     showForm() {
       console.log(this.isOpenForm);
       this.isOpenForm = (this.isOpenForm === false? true : false);
-      this.transaction = {id: 1, transactionDate: '', storeName: '', amount: 0 };
+      this.transaction = {id: 1, transactionDate: '', storeName: '', amount: 0, category: '' };
 
     }
 

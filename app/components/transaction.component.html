@@ -37,7 +37,7 @@
     <form class="form add-transaction-form" *ngIf="transactions" (ngSubmit)="submitForm()" #transactionForm="ngForm">
       <div class="form-group">
         <label>Date</label>
-        <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
+        <!-- <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker> -->
         <input type="text" class="form-control" name="date" [(ngModel)]="transaction.transactionDate" placeholder="Date"/>
       </div>
       <div class="form-group">

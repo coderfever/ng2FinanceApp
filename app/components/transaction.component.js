@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var transaction_service_1 = require("../services/transaction.service");
-var ng2_datepicker_1 = require("ng2-datepicker");
 // import { TransactionFormComponent } from './TransactionFormComponent';
 var TransactionComponent = (function () {
     function TransactionComponent(transactionService) {
@@ -22,8 +21,9 @@ var TransactionComponent = (function () {
             "Grocery",
             "Auto"
         ];
+        //options: DatePickerOptions;
         this.isOpenForm = false;
-        this.options = new ng2_datepicker_1.DatePickerOptions;
+        //  this.options = new DatePickerOptions;
     }
     TransactionComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -52,7 +52,7 @@ var TransactionComponent = (function () {
     TransactionComponent.prototype.showForm = function () {
         console.log(this.isOpenForm);
         this.isOpenForm = (this.isOpenForm === false ? true : false);
-        this.transaction = { id: 1, transactionDate: '', storeName: '', amount: 0 };
+        this.transaction = { id: 1, transactionDate: '', storeName: '', amount: 0, category: '' };
     };
     TransactionComponent.prototype.submitForm = function () {
         this.transactions.push(this.transaction);

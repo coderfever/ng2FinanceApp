@@ -10,7 +10,6 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var angular2_highcharts_1 = require("angular2-highcharts");
-var ng2_datepicker_1 = require("ng2-datepicker");
 var transaction_component_1 = require("./transaction.component");
 var transaction_service_1 = require("../services/transaction.service");
 var TransactionModule = (function () {
@@ -22,8 +21,7 @@ TransactionModule = __decorate([
     core_1.NgModule({
         imports: [common_1.CommonModule,
             forms_1.FormsModule,
-            angular2_highcharts_1.ChartModule.forRoot(require('highcharts')),
-            ng2_datepicker_1.DatePickerModule
+            angular2_highcharts_1.ChartModule.forRoot(require('highcharts'))
         ],
         declarations: [transaction_component_1.TransactionComponent],
         exports: [transaction_component_1.TransactionComponent],

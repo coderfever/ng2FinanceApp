@@ -8,15 +8,21 @@ import { HttpModule }     from '@angular/http';
 import { TransactionModule }  from './components/transaction.module';
 import { UserComponent }      from './components/user.component';
 
+
 import { AppComponent }   from './app.component';
 import { routing }        from './app.routing';
+
+import { DatepickerModule, AlertModule } from 'ng2-bootstrap';
 
 @NgModule({
   imports:      [ BrowserModule,
                   FormsModule,
                   HttpModule,
                   routing,
-                  TransactionModule ],
+                  TransactionModule,
+                  AlertModule.forRoot(),
+                  DatepickerModule.forRoot()
+                 ],
   declarations: [ AppComponent, UserComponent ],
   bootstrap:    [ AppComponent ]
 })

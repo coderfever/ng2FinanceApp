@@ -33,8 +33,9 @@
       'angular2-highcharts' : 'node_modules/angular2-highcharts',
       'highcharts' : 'node_modules/highcharts',
 
-      'ng2-datepicker' : 'npm:ng2-datepicker',
-      'ng2-datepicker' : 'node_modules/ng2-datepicker'
+      'ng2-bootstrap' : 'node_modules/ngx-bootstrap',
+      'moment'          : 'node_modules/moment',
+
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -53,10 +54,16 @@
         main: './index.js',
         defaultExtension: 'js'
       },
-      'ng2-datepicker' : {
-        main: './index.js',
+      'moment' : {
+        main: './moment.js',
         defaultExtension: 'js'
-      }
+      },
+      'ng2-bootstrap' : {
+        format: 'cjs',
+        main: 'bundles/ngx-bootstrap.umd.js',
+        defaultExtension: 'js'
+      },
+
     }
   });
 })(this);
