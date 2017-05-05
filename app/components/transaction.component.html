@@ -1,0 +1,69 @@
+<h1>{{header_title}}</h1>
+
+<div class="container">
+  <chart [options]="options"></chart>
+
+  <div class="row col-md-12 budgets">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>storeName</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor ="let transaction of transactions; let i = index">
+        <tr>
+          <!-- <td> {{transaction.timestamp}}</td> -->
+          <td> {{transaction.transactionDate | date}}</td>
+          <td> {{transaction.storeName}}</td>
+          <td> {{transaction.amount | currency }}</td>
+          <td> {{transaction.category }}</td>
+          <td>
+            <button (click)="deleteTransaction(i)" class="pull-right"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button type="button" class="btn" (click)="runTest()">Run Test</button>
+
+  <button type="button" class="btn" (click)="showForm()">New Transaction</button>
+  <div *ngIf="isOpenForm">
+    <h3>Add Transaction Test</h3>
+    <form class="form add-transaction-form" *ngIf="transactions" (ngSubmit)="submitForm()" #transactionForm="ngForm">
+      <div class="form-group">
+        <label>Date</label>
+        <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
+        <input type="text" class="form-control" name="date" [(ngModel)]="transaction.transactionDate" placeholder="Date"/>
+      </div>
+      <div class="form-group">
+        <label>Store Name</label>
+        <input type="text" class="form-control" name="storeName" [(ngModel)]="transaction.storeName" placeholder="Store name"/>
+      </div>
+      <div class="form-group">
+        <label>Amount</label>
+        <input type="number" class="form-control" name="amount" [(ngModel)]="transaction.amount" value="transaction.amount" placeholder="Amount $"/>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select class="form-control" name="amount" [(ngModel)]="transaction.category" value="transaction.category" placeholder="Category">
+          <option *ngFor="let category of categories">
+            {{category}}
+          </option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="button" class="btn btn-danger" (click)="cancelForm()">Delete</button>
+    </form>
+
+  </div>
+
+    <!-- <div class="alert alert-info text-center" ng-hide="false">
+      <h3>No Transactions yet!</h3>
+    </div> -->
+</div>
